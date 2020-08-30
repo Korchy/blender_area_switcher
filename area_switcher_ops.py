@@ -15,14 +15,12 @@ class AREA_SWITCHER_OT_main(Operator):
     bl_options = {'REGISTER', 'UNDO'}
 
     def execute(self, context):
-        fr = [e for e in context.preferences.addons[__package__].preferences.items if e[0] == context.area.ui_type][0][5]
-        print(fr)
-        vl = getattr(context.preferences.addons[__package__].preferences, fr)
-        print(vl)
-        # print(context.area.ui_type)
-
-        context.area.ui_type = vl
-
+        # get an area type to switch to (from add-on properties)
+        current_area_state_var_name = next((e for e in context.preferences.addons[__package__].preferences.items if e[0] == context.area.ui_type), None)[5]
+        if current_area_state_var_name:
+            current_area_state_var = getattr(context.preferences.addons[__package__].preferences, current_area_state_var_name)
+            if current_area_state_var != 'NONE':
+                context.area.ui_type = current_area_state_var
         return {'FINISHED'}
 
 

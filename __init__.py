@@ -26,16 +26,16 @@ bl_info = {
 def register():
     if not Addon.dev_mode():
         area_switcher_ops.register()
-        area_switcher_ui.register()
         area_switcher_preferences.register()
+        area_switcher_ui.register()     # after preferences
     else:
         print('It seems you are trying to use the dev version of the ' + bl_info['name'] + ' add-on. It may work not properly. Please download and use the release version!')
 
 
 def unregister():
     if not Addon.dev_mode():
-        area_switcher_preferences.unregister()
         area_switcher_ui.unregister()
+        area_switcher_preferences.unregister()
         area_switcher_ops.unregister()
 
 
