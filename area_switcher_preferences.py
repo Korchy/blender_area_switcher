@@ -5,7 +5,7 @@
 #   https://github.com/Korchy/blender_area_switcher
 
 from bpy.types import AddonPreferences
-from bpy.props import StringProperty, EnumProperty
+from bpy.props import BoolProperty, EnumProperty
 from bpy.utils import register_class, unregister_class
 from .area_switcher_ui import AREA_SWITCHER_ui
 
@@ -160,6 +160,31 @@ class AREA_SWITCHER_preferences(AddonPreferences):
         update=lambda self, context: AREA_SWITCHER_ui.update(context=context)
     )
 
+    dynamic_icons: BoolProperty(
+        name='Dynamic Icons',
+        default=True,
+        update=lambda self, context: AREA_SWITCHER_ui.update(context=context)
+    )
+
+    def switch_to(self, ui_type):
+        # return property which defines switching target
+        switch_to_var = None
+        switch_to_info = next((area_type for area_type in self.items if area_type[0] == ui_type), None)
+        if switch_to_info:
+            switch_to_var_name = switch_to_info[5]
+            switch_to_var = getattr(self, switch_to_var_name)
+        return switch_to_var
+
+    def switch_to_icon(self, ui_type):
+        # return dest icon for switched area type
+        icon = None
+        switch_to_var = self.switch_to(ui_type=ui_type)
+        if switch_to_var:
+            icon_info = next((area_type for area_type in self.items if area_type[0] == switch_to_var), None)
+            if icon_info:
+                icon = icon_info[3]
+        return icon
+
     def draw(self, context):
         layout = self.layout
         box = layout.box()
@@ -184,6 +209,7 @@ class AREA_SWITCHER_preferences(AddonPreferences):
         box.prop(self, property='properties')
         box.prop(self, property='file_browser')
         box.prop(self, property='preferences')
+        layout.prop(self, property='dynamic_icons')
 
 
 def register():

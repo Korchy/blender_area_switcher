@@ -11,8 +11,12 @@ import bpy
 
 @persistent
 def area_switcher_header_button(self, context):
+    # draw function for area switch operator - add to area header
     layout = self.layout
-    layout.operator('area_switcher.switch_area', text='', icon='WINDOW')
+    icon = 'WINDOW'
+    if context.preferences.addons[__package__].preferences.dynamic_icons:
+        icon = context.preferences.addons[__package__].preferences.switch_to_icon(ui_type=context.area.ui_type)
+    layout.operator('area_switcher.switch_area', text='', icon=icon)
 
 
 class AREA_SWITCHER_ui:

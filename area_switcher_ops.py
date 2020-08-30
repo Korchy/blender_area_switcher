@@ -16,11 +16,10 @@ class AREA_SWITCHER_OT_main(Operator):
 
     def execute(self, context):
         # get an area type to switch to (from add-on properties)
-        current_area_state_var_name = next((e for e in context.preferences.addons[__package__].preferences.items if e[0] == context.area.ui_type), None)[5]
-        if current_area_state_var_name:
-            current_area_state_var = getattr(context.preferences.addons[__package__].preferences, current_area_state_var_name)
-            if current_area_state_var != 'NONE':
-                context.area.ui_type = current_area_state_var
+        switch_to = context.preferences.addons[__package__].preferences.switch_to(ui_type=context.area.ui_type)
+        # switch to new area type
+        if switch_to != 'NONE':
+            context.area.ui_type = switch_to
         return {'FINISHED'}
 
 
