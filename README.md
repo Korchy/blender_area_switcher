@@ -13,6 +13,10 @@ The add-on is fully customizable. From which workspace and to which one the swit
 
 <img src="https://b3d.interplanety.org/wp-content/upload_content/2020/09/preview_01_1200x600-560x280.jpg"><p>
 
+Add-on web-page
+-
+ https://b3d.interplanety.org/en/blender-add-on-area-switcher/
+
 Current add-on version
 -
 1.0.0.
