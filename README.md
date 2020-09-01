@@ -15,7 +15,9 @@ The add-on is fully customizable. From which workspace and to which one the swit
 
 Add-on web-page
 -
- https://b3d.interplanety.org/en/blender-add-on-area-switcher/
+More on https://b3d.interplanety.org/en/blender-add-on-area-switcher/
+
+You can support the development on <a href="https://www.patreon.com/interplanety">Patreon</a>
 
 Current add-on version
 -
