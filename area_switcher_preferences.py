@@ -126,13 +126,13 @@ class AREA_SWITCHER_preferences(AddonPreferences):
     console: EnumProperty(
         name='Python Console',
         items=[elem[:5] for elem in items],
-        default='NONE',
+        default='INFO',
         update=lambda self, context: AREA_SWITCHER_ui.update(context=context)
     )
     info: EnumProperty(
         name='Info',
         items=[elem[:5] for elem in items],
-        default='NONE',
+        default='CONSOLE',
         update=lambda self, context: AREA_SWITCHER_ui.update(context=context)
     )
     outliner: EnumProperty(
@@ -168,7 +168,7 @@ class AREA_SWITCHER_preferences(AddonPreferences):
 
     def switch_to(self, ui_type):
         # return property which defines switching target
-        switch_to_var = None
+        switch_to_var = 'NONE'
         switch_to_info = next((area_type for area_type in self.items if area_type[0] == ui_type), None)
         if switch_to_info:
             switch_to_var_name = switch_to_info[5]
@@ -177,9 +177,9 @@ class AREA_SWITCHER_preferences(AddonPreferences):
 
     def switch_to_icon(self, ui_type):
         # return dest icon for switched area type
-        icon = None
+        icon = 'NONE'
         switch_to_var = self.switch_to(ui_type=ui_type)
-        if switch_to_var:
+        if switch_to_var != 'NONE':
             icon_info = next((area_type for area_type in self.items if area_type[0] == switch_to_var), None)
             if icon_info:
                 icon = icon_info[3]
