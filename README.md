@@ -21,11 +21,11 @@ You can support the development on <a href="https://www.patreon.com/interplanety
 
 Current add-on version
 -
-1.0.0.
+1.0.1.
 
 Blender versions
 -
-2.83, 2.90
+2.83, 2.90, 2.91
 
 Location and call
 -
@@ -38,5 +38,9 @@ Installation
 
 Version history
 -
+1.0.1.
+- Added shortcode for switching with keykodes.
+- Fixed error when switching to the 'UV Editor' in Blender 2.91
+
 1.0.0.
 - This release.

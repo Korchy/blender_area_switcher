@@ -4,6 +4,7 @@
 # GitHub
 #   https://github.com/Korchy/blender_area_switcher
 
+import bpy
 from bpy.types import AddonPreferences
 from bpy.props import BoolProperty, EnumProperty
 from bpy.utils import register_class, unregister_class
@@ -19,6 +20,28 @@ class AREA_SWITCHER_preferences(AddonPreferences):
         ('NONE', 'None', 'None', '', 0, '', ''),
         ('VIEW_3D', '3D Viewport', '3D Viewport', 'VIEW3D', 1, 'view_3d', 'VIEW3D_HT_tool_header'),
         ('VIEW', 'Image Editor', 'Image Editor', 'IMAGE', 2, 'image_editor', 'IMAGE_HT_header'),
+        ('UV', 'UV Editor', 'UV Editor', 'UV', 3, 'uv_editor', 'IMAGE_HT_header'),
+        ('ShaderNodeTree', 'Shader Editor', 'Shader Editor', 'SHADING_RENDERED', 4, 'shader_editor', 'NODE_HT_header'),
+        ('CompositorNodeTree', 'Compositor', 'Compositor', 'NODE_COMPOSITING', 5, 'compositor', 'NODE_HT_header'),
+        ('TextureNodeTree', 'Texture Node Editor', 'Texture Node Editor', 'NODE_TEXTURE', 6, 'texture_node_editor', 'NODE_HT_header'),
+        ('SEQUENCE_EDITOR', 'Video Squiencer', 'Video Sequencer', 'SEQUENCE', 7, 'sequence_editor', 'SEQUENCER_HT_header'),
+        ('CLIP_EDITOR', 'Movie Clip Editor', 'Movie Clip Editor', 'TRACKER', 8, 'clip_editor', 'CLIP_HT_header'),
+        ('DOPESHEET', 'Dope Sheet', 'Dope Sheet', 'ACTION', 9, 'doppesheet', 'DOPESHEET_HT_header'),
+        ('TIMELINE', 'TileLine', 'TimeLine', 'TIME', 10, 'timeline', 'DOPESHEET_HT_header'),
+        ('FCURVES', 'Graph Editor', 'Graph Editor', 'GRAPH', 11, 'fcurves', 'GRAPH_HT_header'),
+        ('DRIVERS', 'Drivers', 'Drivers', 'DRIVER', 12, 'drivers', 'GRAPH_HT_header'),
+        ('NLA_EDITOR', 'Nonlinear Animation', 'Nonlinear Animation', 'NLA', 13, 'nla_editor', 'NLA_HT_header'),
+        ('TEXT_EDITOR', 'Text Editor', 'Text Editor', 'TEXT', 14, 'text_editor', 'TEXT_HT_header'),
+        ('CONSOLE', 'Python Console', 'Python Console', 'CONSOLE', 15, 'console', 'CONSOLE_HT_header'),
+        ('INFO', 'Info', 'Info', 'INFO', 16, 'info', 'INFO_HT_header'),
+        ('OUTLINER', 'Outliner', 'Outliner', 'OUTLINER', 17, 'outliner', 'OUTLINER_HT_header'),
+        ('PROPERTIES', 'Properties', 'Properties', 'PROPERTIES', 18, 'properties', 'PROPERTIES_HT_header'),
+        ('FILE_BROWSER', 'File Browser', 'File Browser', 'FILEBROWSER', 19, 'file_browser', 'FILEBROWSER_HT_header'),
+        ('PREFERENCES', 'Preferences', 'Preferences', 'PREFERENCES', 20, 'preferences', 'USERPREF_HT_header')
+    ] if bpy.app.version < (2, 91, 0) else [
+        ('NONE', 'None', 'None', '', 0, '', ''),
+        ('VIEW_3D', '3D Viewport', '3D Viewport', 'VIEW3D', 1, 'view_3d', 'VIEW3D_HT_tool_header'),
+        ('IMAGE_EDITOR', 'Image Editor', 'Image Editor', 'IMAGE', 2, 'image_editor', 'IMAGE_HT_header'),
         ('UV', 'UV Editor', 'UV Editor', 'UV', 3, 'uv_editor', 'IMAGE_HT_header'),
         ('ShaderNodeTree', 'Shader Editor', 'Shader Editor', 'SHADING_RENDERED', 4, 'shader_editor', 'NODE_HT_header'),
         ('CompositorNodeTree', 'Compositor', 'Compositor', 'NODE_COMPOSITING', 5, 'compositor', 'NODE_HT_header'),
@@ -54,7 +77,7 @@ class AREA_SWITCHER_preferences(AddonPreferences):
     uv_editor: EnumProperty(
         name='UV Editor',
         items=[elem[:5] for elem in items],
-        default='VIEW',
+        default=('VIEW' if bpy.app.version < (2, 91, 0) else 'IMAGE_EDITOR'),
         update=lambda self, context: AREA_SWITCHER_ui.update(context=context)
     )
     shader_editor: EnumProperty(
