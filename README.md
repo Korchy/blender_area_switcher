@@ -13,6 +13,8 @@ The add-on is fully customizable. From which workspace and to which one the swit
 
 <img src="https://b3d.interplanety.org/wp-content/upload_content/2020/09/preview_01_1200x600-560x280.jpg"><p>
 
+You can also switch areas with the **ctrl+shift+d** keycode
+
 Add-on web-page
 -
 More on https://b3d.interplanety.org/en/blender-add-on-area-switcher/
@@ -39,7 +41,7 @@ Installation
 Version history
 -
 1.0.1.
-- Added shortcode for switching with keykodes.
+- Added the shortcode for switching with keycodes.
 - Fixed error when switching to the 'UV Editor' in Blender 2.91
 
 1.0.0.
