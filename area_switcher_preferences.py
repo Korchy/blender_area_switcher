@@ -27,7 +27,7 @@ class AREA_SWITCHER_preferences(AddonPreferences):
         ('SEQUENCE_EDITOR', 'Video Squiencer', 'Video Sequencer', 'SEQUENCE', 7, 'sequence_editor', 'SEQUENCER_HT_header'),
         ('CLIP_EDITOR', 'Movie Clip Editor', 'Movie Clip Editor', 'TRACKER', 8, 'clip_editor', 'CLIP_HT_header'),
         ('DOPESHEET', 'Dope Sheet', 'Dope Sheet', 'ACTION', 9, 'doppesheet', 'DOPESHEET_HT_header'),
-        ('TIMELINE', 'TileLine', 'TimeLine', 'TIME', 10, 'timeline', 'DOPESHEET_HT_header'),
+        ('TIMELINE', 'TimeLine', 'TimeLine', 'TIME', 10, 'timeline', 'DOPESHEET_HT_header'),
         ('FCURVES', 'Graph Editor', 'Graph Editor', 'GRAPH', 11, 'fcurves', 'GRAPH_HT_header'),
         ('DRIVERS', 'Drivers', 'Drivers', 'DRIVER', 12, 'drivers', 'GRAPH_HT_header'),
         ('NLA_EDITOR', 'Nonlinear Animation', 'Nonlinear Animation', 'NLA', 13, 'nla_editor', 'NLA_HT_header'),
@@ -49,7 +49,7 @@ class AREA_SWITCHER_preferences(AddonPreferences):
         ('SEQUENCE_EDITOR', 'Video Squiencer', 'Video Sequencer', 'SEQUENCE', 7, 'sequence_editor', 'SEQUENCER_HT_header'),
         ('CLIP_EDITOR', 'Movie Clip Editor', 'Movie Clip Editor', 'TRACKER', 8, 'clip_editor', 'CLIP_HT_header'),
         ('DOPESHEET', 'Dope Sheet', 'Dope Sheet', 'ACTION', 9, 'doppesheet', 'DOPESHEET_HT_header'),
-        ('TIMELINE', 'TileLine', 'TimeLine', 'TIME', 10, 'timeline', 'DOPESHEET_HT_header'),
+        ('TIMELINE', 'TimeLine', 'TimeLine', 'TIME', 10, 'timeline', 'DOPESHEET_HT_header'),
         ('FCURVES', 'Graph Editor', 'Graph Editor', 'GRAPH', 11, 'fcurves', 'GRAPH_HT_header'),
         ('DRIVERS', 'Drivers', 'Drivers', 'DRIVER', 12, 'drivers', 'GRAPH_HT_header'),
         ('NLA_EDITOR', 'Nonlinear Animation', 'Nonlinear Animation', 'NLA', 13, 'nla_editor', 'NLA_HT_header'),
@@ -117,7 +117,7 @@ class AREA_SWITCHER_preferences(AddonPreferences):
         update=lambda self, context: AREA_SWITCHER_ui.update(context=context)
     )
     timeline: EnumProperty(
-        name='TileLine',
+        name='TimeLine',
         items=[elem[:5] for elem in items],
         default='NONE',
         update=lambda self, context: AREA_SWITCHER_ui.update(context=context)
