@@ -19,7 +19,10 @@ class AREA_SWITCHER_OT_main(Operator):
         switch_to = context.preferences.addons[__package__].preferences.switch_to(ui_type=context.area.ui_type)
         # switch to new area type
         if switch_to != 'NONE':
-            context.area.ui_type = switch_to
+            try:
+                context.area.ui_type = switch_to
+            except Exception as exception:
+                print('Undefined area type. You may need to install external add-ons.')
         return {'FINISHED'}
 
 

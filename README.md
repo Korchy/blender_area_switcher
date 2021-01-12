@@ -23,7 +23,7 @@ You can support the development on <a href="https://www.patreon.com/interplanety
 
 Current add-on version
 -
-1.0.1.
+1.1.0.
 
 Blender versions
 -
@@ -40,6 +40,9 @@ Installation
 
 Version history
 -
+1.1.0.
+- Added the "Animation Nodes" area type.
+
 1.0.1.
 - Added the shortcode for switching with keycodes.
 - Fixed error when switching to the 'UV Editor' in Blender 2.91
