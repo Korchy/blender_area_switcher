@@ -15,7 +15,7 @@ bl_info = {
     'name': 'AreaSwitcher',
     'category': 'All',
     'author': 'Nikita Akimov',
-    'version': (1, 1, 0),
+    'version': (1, 2, 0),
     'blender': (2, 83, 0),
     'location': 'Areas header menu',
     'wiki_url': 'https://b3d.interplanety.org/en/blender-add-on-area-switcher/',

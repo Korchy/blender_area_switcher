@@ -27,13 +27,14 @@ class AREA_SWITCHER_ui:
         # register ui
         # bpy.types.OUTLINER_HT_header.prepend(area_switcher_header_button)
         for item in context.preferences.addons[__package__].preferences.items:
-            if item[6]:
+            if item[6] and hasattr(bpy.types, item[6]):
                 window_haeder_cls = getattr(bpy.types, item[6])
                 if not (hasattr(window_haeder_cls.draw, '_draw_funcs')
                         and area_switcher_header_button in window_haeder_cls.draw._draw_funcs):
                     current_area_state_var_name = item[5]
                     if current_area_state_var_name:
-                        current_area_state_var = getattr(context.preferences.addons[__package__].preferences, current_area_state_var_name)
+                        current_area_state_var = getattr(context.preferences.addons[__package__].preferences,
+                                                         current_area_state_var_name)
                         if current_area_state_var != 'NONE':
                             window_haeder_cls.prepend(area_switcher_header_button)
 
@@ -42,7 +43,7 @@ class AREA_SWITCHER_ui:
         # unregister ui
         # bpy.types.OUTLINER_HT_header.remove(area_switcher_header_button)
         for item in context.preferences.addons[__package__].preferences.items:
-            if item[6]:
+            if item[6] and hasattr(bpy.types, item[6]):
                 window_haeder_cls = getattr(bpy.types, item[6])
                 # if area_switcher_header_button in window_haeder_cls.draw._draw_funcs:
                 window_haeder_cls.remove(area_switcher_header_button)

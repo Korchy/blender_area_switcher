@@ -23,11 +23,11 @@ You can support the development on <a href="https://www.patreon.com/interplanety
 
 Current add-on version
 -
-1.1.0.
+1.2.0.
 
 Blender versions
 -
-2.83, 2.90, 2.91
+2.83, 2.90, 2.91, 2.92, 2.93, 3.0, 3.1
 
 Location and call
 -
@@ -40,6 +40,10 @@ Installation
 
 Version history
 -
+1.2.0.
+- Fixed issue with the "File Browser" window
+- Added the "Geometry Nodes", "Spreadsheet", "Asset Browser" area types.
+
 1.1.0.
 - Added the "Animation Nodes" area type.
 

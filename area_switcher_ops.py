@@ -16,13 +16,15 @@ class AREA_SWITCHER_OT_main(Operator):
 
     def execute(self, context):
         # get an area type to switch to (from add-on properties)
-        switch_to = context.preferences.addons[__package__].preferences.switch_to(ui_type=context.area.ui_type)
+        switch_to = context.preferences.addons[__package__].preferences.switch_to(
+            ui_type=context.area.ui_type
+        )
         # switch to new area type
         if switch_to != 'NONE':
             try:
                 context.area.ui_type = switch_to
             except Exception as exception:
-                print('Undefined area type. You may need to install external add-ons.')
+                print('Unknown area type. You may need to upgrade Blender to later version or install external add-on.')
         return {'FINISHED'}
 
 
