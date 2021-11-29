@@ -17,7 +17,9 @@ class AREA_SWITCHER_preferences(AddonPreferences):
     # [(id, name, description, icon, id_num, variable name, area header name, from addon), ...]
     items = [
         ('NONE', 'None', 'None', '', 0, '', '', False),
-        ('VIEW_3D', '3D Viewport', '3D Viewport', 'VIEW3D', 1, 'view_3d', 'VIEW3D_HT_tool_header', False),
+        ('VIEW_3D', '3D Viewport', '3D Viewport', 'VIEW3D', 1, 'view_3d', 'VIEW3D_HT_tool_header', False)
+        if bpy.app.version < (3, 0, 0)
+        else ('VIEW_3D', '3D Viewport', '3D Viewport', 'VIEW3D', 1, 'view_3d', 'VIEW3D_HT_header', False),
         ('VIEW', 'Image Editor', 'Image Editor', 'IMAGE', 2, 'image_editor', 'IMAGE_HT_header', False)
         if bpy.app.version < (2, 91, 0)
         else ('IMAGE_EDITOR', 'Image Editor', 'Image Editor', 'IMAGE', 2, 'image_editor', 'IMAGE_HT_header', False),

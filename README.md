@@ -23,7 +23,7 @@ You can support the development on <a href="https://www.patreon.com/interplanety
 
 Current add-on version
 -
-1.2.0.
+1.2.1.
 
 Blender versions
 -
@@ -40,7 +40,10 @@ Installation
 
 Version history
 -
-1.2.0.
+1.2.1.
+- Corrected the switcher icon location in the 3D Viewport window in Blender 3.0
+
+- 1.2.0.
 - Fixed issue with the "File Browser" window
 - Added the "Geometry Nodes", "Spreadsheet", "Asset Browser" area types.
 
