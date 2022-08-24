@@ -23,11 +23,11 @@ You can support the development on <a href="https://www.patreon.com/interplanety
 
 Current add-on version
 -
-1.2.1.
+1.3.0.
 
 Blender versions
 -
-2.83, 2.90, 2.91, 2.92, 2.93, 3.0, 3.1
+2.83, 2.90, 2.91, 2.92, 2.93, 3.0, 3.1, 3.2, 3.3, 3,4
 
 Location and call
 -
@@ -40,6 +40,10 @@ Installation
 
 Version history
 -
+1.3.0.
+- Added the "LuxCore" add-on area types
+- Modified to register last (after all other add-ons) to prevent issues with external add-ons (like LuxCore)
+
 1.2.1.
 - Corrected the switcher icon location in the 3D Viewport window in Blender 3.0
 
@@ -48,7 +52,7 @@ Version history
 - Added the "Geometry Nodes", "Spreadsheet", "Asset Browser" area types.
 
 1.1.0.
-- Added the "Animation Nodes" area type.
+- Added the "Animation Nodes" add-on area type.
 
 1.0.1.
 - Added the shortcode for switching with keycodes.

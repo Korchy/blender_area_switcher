@@ -46,7 +46,9 @@ class AREA_SWITCHER_preferences(AddonPreferences):
         ('ASSETS', 'Asset Browser', 'Asset Browser', 'ASSET_MANAGER', 23, 'asset_browser', 'FILEBROWSER_HT_header', False),
         ('SPREADSHEET', 'Spreadsheet', 'Spreadsheet', 'SPREADSHEET', 24, 'spreadsheet', 'SPREADSHEET_HT_header', False),
         ('PREFERENCES', 'Preferences', 'Preferences', 'PREFERENCES', 20, 'preferences', 'USERPREF_HT_header', False),
-        ('an_AnimationNodeTree', 'Animation Nodes', 'Animation Nodes', 'ONIONSKIN_ON', 21, 'animation_nodes', 'NODE_HT_header', True)
+        ('an_AnimationNodeTree', 'Animation Nodes', 'Animation Nodes', 'ONIONSKIN_ON', 21, 'animation_nodes', 'NODE_HT_header', True),
+        ('luxcore_material_nodes', 'LuxCore Material Nodes', 'LuxCore Material Nodes', 'MATERIAL', 25, 'luxcore_material_nodes', 'NODE_HT_header', True),
+        ('luxcore_volume_nodes', 'LuxCore Volume Nodes', 'LuxCore Volume Nodes', 'MOD_FLUIDSIM', 26, 'luxcore_volume_nodes', 'NODE_HT_header', True)
     ]
 
     view_3d: EnumProperty(
@@ -130,7 +132,7 @@ class AREA_SWITCHER_preferences(AddonPreferences):
     text_editor: EnumProperty(
         name='Text Editor',
         items=[elem[:5] for elem in items],
-        default='NONE',
+        default='PREFERENCES',
         update=lambda self, context: AREA_SWITCHER_ui.update(context=context)
     )
     console: EnumProperty(
@@ -166,7 +168,7 @@ class AREA_SWITCHER_preferences(AddonPreferences):
     preferences: EnumProperty(
         name='Preferences',
         items=[elem[:5] for elem in items],
-        default='NONE',
+        default='TEXT_EDITOR',
         update=lambda self, context: AREA_SWITCHER_ui.update(context=context)
     )
     animation_nodes: EnumProperty(
@@ -189,6 +191,18 @@ class AREA_SWITCHER_preferences(AddonPreferences):
     )
     spreadsheet: EnumProperty(
         name='Spreadsheet',
+        items=[elem[:5] for elem in items],
+        default='NONE',
+        update=lambda self, context: AREA_SWITCHER_ui.update(context=context)
+    )
+    luxcore_material_nodes: EnumProperty(
+        name='LuxCore Material Nodes',
+        items=[elem[:5] for elem in items],
+        default='NONE',
+        update=lambda self, context: AREA_SWITCHER_ui.update(context=context)
+    )
+    luxcore_volume_nodes: EnumProperty(
+        name='LuxCore Volume Nodes',
         items=[elem[:5] for elem in items],
         default='NONE',
         update=lambda self, context: AREA_SWITCHER_ui.update(context=context)
@@ -235,6 +249,12 @@ class AREA_SWITCHER_preferences(AddonPreferences):
                 box.prop(self, property=item[5])
         # dynamic icons
         layout.prop(self, property='dynamic_icons')
+
+
+class AREA_SWITCHER_vars():
+    # An additional class to check if add-on already registered or not
+    #   needs to provide that the add-on should be registered last (after all other add-ons)
+    registered = False
 
 
 def register():
